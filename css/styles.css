@@ -208,13 +208,6 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 }
 .profile-card__name { font-weight: 700; font-size: 15.5px; }
 .profile-card__role { font-size: 13.5px; color: var(--text-soft); }
-.status {
-  margin-left: auto; display: inline-flex; align-items: center; gap: 6px;
-  font-size: 12px; font-weight: 600; color: var(--ok);
-  background: color-mix(in srgb, var(--ok) 12%, transparent);
-  padding: 4px 10px; border-radius: 999px; white-space: nowrap;
-}
-.dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; animation: pulse 2s infinite; }
 @keyframes pulse { 50% { opacity: .35; } }
 
 .flow { width: 100%; height: auto; display: block; margin: 12px 0; }
@@ -512,7 +505,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 /* Línea "HOY" al final de todas las capas */
 .layers__chart::after {
   content: "HOY";
-  position: absolute; top: -14px; bottom: 0; right: 8px;
+  position: absolute; top: -14px; bottom: 26px; right: 8px;
   border-right: 2px solid var(--accent);
   font: 600 10.5px var(--mono); letter-spacing: .08em; color: var(--accent);
   padding-right: 6px; text-align: right;
@@ -625,51 +618,7 @@ html:not(.js) .layer__bar { transform: none; }
   .layer__bar { transform: none; transition: none; }
 }
 
-/* Trayectoria: empresas */
-.jobs { margin-top: 22px; padding-top: 16px; border-top: 1px dashed var(--line); }
-.jobs__label { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 8px; }
-.jobs__ribbon { position: relative; height: 34px; background: var(--bg-alt); border-radius: 10px; }
-.job {
-  all: unset; box-sizing: border-box; cursor: pointer;
-  position: absolute; top: 0; bottom: 0;
-  left: calc(var(--x) * 100%); width: calc(var(--w) * 100%);
-  border-radius: 8px;
-  background: var(--jc);
-  opacity: .55;
-  border: 2px solid var(--surface);
-  transition: opacity .2s, transform .2s, box-shadow .2s;
-}
-.job:hover { opacity: .85; }
-.job:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-.job.is-active { opacity: 1; transform: scaleY(1.12); box-shadow: 0 6px 16px color-mix(in srgb, var(--jc) 40%, transparent); }
-.job.is-now::after {
-  content: ""; position: absolute; right: 8px; top: 50%; width: 7px; height: 7px; margin-top: -3.5px;
-  border-radius: 50%; background: #fff; animation: pulse 1.6s infinite;
-}
-.job[data-c="1"], .jleg[data-c="1"] { --jc: #0ea5e9; }
-.job[data-c="2"], .jleg[data-c="2"] { --jc: #14b8a6; }
-.job[data-c="3"], .jleg[data-c="3"] { --jc: var(--accent); }
-.job[data-c="4"], .jleg[data-c="4"] { --jc: #f59e0b; }
-.job[data-c="5"], .jleg[data-c="5"] { --jc: #ec4899; }
-.job[data-c="6"], .jleg[data-c="6"] { --jc: var(--ai); }
-
-.jobs__legend { display: flex; flex-wrap: wrap; gap: 6px 14px; margin-top: 12px; }
-.jleg {
-  all: unset; cursor: pointer;
-  display: inline-flex; align-items: center; gap: 7px;
-  font-size: 13px; color: var(--text-soft);
-  padding: 2px 0;
-}
-.jleg::before { content: ""; width: 10px; height: 10px; border-radius: 3px; background: var(--jc); }
-.jleg:hover, .jleg.is-active { color: var(--text); }
-.jleg.is-active { font-weight: 700; }
-.jleg:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
-
 .layers__kicker { font-size: 12px; color: var(--accent); margin-bottom: 4px; min-height: 1em; }
-.layers__bullets { margin-bottom: 16px; }
-.layers__bullets li { font-size: 14.5px; color: var(--text-soft); padding: 5px 0 5px 18px; position: relative; line-height: 1.45; }
-.layers__bullets li::before { content: ""; position: absolute; left: 2px; top: 12px; width: 7px; height: 7px; border-radius: 2px; background: var(--jc, var(--accent)); }
-.layers__bullets:empty { display: none; }
 
 @media (max-width: 560px) {
   .layers__axis span:nth-child(even) { visibility: hidden; }

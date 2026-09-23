@@ -72,7 +72,6 @@
                 <p class="profile-card__name">José Armando Zacarías</p>
                 <p class="profile-card__role">Jefe de Desarrollo · SAP B1</p>
               </div>
-              <span class="status"><span class="dot"></span>Disponible</span>
             </div>
 
             <!-- Diagrama de integración -->
@@ -487,17 +486,17 @@
         <header class="section__head reveal">
           <p class="eyebrow">Trayectoria</p>
           <h2>Capas que se suman, no que se reemplazan</h2>
-          <p class="section__lead">Desde 2013 sobre SAP Business One. Cada etapa se construyó encima de la anterior y todas siguen activas hoy. Toca una capa o una empresa para ver el detalle.</p>
+          <p class="section__lead">Desde 2013 sobre SAP Business One. Cada etapa se construyó encima de la anterior y todas siguen activas hoy. Toca una capa para ver el detalle.</p>
         </header>
 
-        <!-- Capas: data-from = año de inicio (todas terminan en "hoy").
-             Empresas: data-start / data-end en años decimales (año + mes/12). -->
+        <!-- Capas: data-from = año de inicio
+             (todas terminan en "hoy"). -->
         <div class="layers reveal" id="layers" data-start="2013" data-end="2026">
           <div class="layers__chart">
             <div class="layers__rows" role="tablist" aria-label="Capas de experiencia">
               <button class="layer" role="tab" data-from="2026" data-level="5"
                 data-title="Desarrollo de soluciones e IA"
-                data-desc="Como Jefe de Desarrollo en IMATE empezó la etapa de construir soluciones propias: SIC, la plataforma de operación integrada con SAP B1, con IA, consultas y automatizaciones."
+                data-desc="La etapa de construir soluciones propias: una plataforma de operación integrada con SAP B1, con IA, consultas y automatizaciones."
                 data-tags="Laravel|C# / .NET|APIs REST|IA aplicada">
                 <span class="layer__meta"><span class="layer__name">Desarrollo e IA</span><span class="layer__years mono"></span></span>
                 <span class="layer__track"><span class="layer__bar"></span></span>
@@ -539,32 +538,6 @@
               </button>
             </div>
             <div class="layers__axis mono" aria-hidden="true"></div>
-
-            <!-- Empresas -->
-            <div class="jobs">
-              <p class="jobs__label mono">Empresas</p>
-              <div class="jobs__ribbon" role="tablist" aria-label="Empresas">
-                <button class="job" role="tab" data-start="2013.08" data-end="2014.33" data-c="1"
-                  data-company="BEXAP" data-role="Soporte SAP B1 · 1er nivel" data-period="Feb 2013 – May 2014"
-                  data-bullets="Soporte a clientes de SAP Business One|Instalación y actualización a SAP B1 8.81, 8.82 y 9|Instalación de SQL Server, respaldos y planes de mantenimiento|Integration Framework para CFDI, Movilidad y Cockpit"></button>
-                <button class="job" role="tab" data-start="2014.33" data-end="2018.25" data-c="2"
-                  data-company="Centro Laminero de México" data-role="Encargado del Área de Sistemas" data-period="May 2014 – Abr 2018"
-                  data-bullets="Implementación de factura electrónica en SAP B1|Migración de versiones de SAP B1 y SQL Server|Alta de nuevas empresas en SAP B1|Envíos automáticos de correo desde SQL|Servidores, Active Directory y cableado estructurado"></button>
-                <button class="job" role="tab" data-start="2018.25" data-end="2024.42" data-c="3"
-                  data-company="Grupo EDID (Ediprint)" data-role="Coordinador SAP B1" data-period="Abr 2018 – May 2024"
-                  data-bullets="Producción: listas de materiales y etapas de ruta|Ubicaciones en almacén para inventarios más precisos|Asistentes de pago|Dashboards en Power BI y reportes en Crystal|Transaction Notifications y vistas SQL|Capacitación de usuarios"></button>
-                <button class="job" role="tab" data-start="2024.42" data-end="2025" data-c="4"
-                  data-company="Naturasol" data-role="Especialista SAP B1" data-period="Jun 2024 – Dic 2024"
-                  data-bullets="Integración WMS–SAP B1 en dos CEDIS|Botón en SDK que genera el borrador de factura para Carta Porte|Reportes personalizados en Crystal y SQL"></button>
-                <button class="job" role="tab" data-start="2025" data-end="2026" data-c="5"
-                  data-company="Elecsa Equipos Industriales" data-role="Coordinador SAP B1" data-period="Ene 2025 – 2026"
-                  data-bullets="Control de facturas de anticipo|Transaction Notifications para prevenir errores|Tipo de cambio diario automático con la API de Banxico|Autorizaciones y permisos por módulo|Formatos en Crystal Reports y consultas clave"></button>
-                <button class="job is-now" role="tab" data-start="2026" data-end="2027" data-c="6"
-                  data-company="IMATE" data-role="Jefe de Desarrollo" data-period="2026 – Actual"
-                  data-bullets="Aquí empezó la etapa de desarrollo: SIC, plataforma de operación integrada con SAP B1|Implementación de IA: consulta de trazabilidad de lotes en lenguaje natural|Manifestación de Valor y VUCEM con lectura automática de pedimentos|Timbrado CFDI y Carta Porte que se recupera solo ante fallas|Cuentas por pagar y firma electrónica de documentos|Consultas HANA y automatización de procesos"></button>
-              </div>
-              <div class="jobs__legend" id="jobsLegend"></div>
-            </div>
           </div>
 
           <aside class="layers__detail" aria-live="polite">
@@ -572,7 +545,6 @@
             <p class="layers__kicker mono" id="layerKicker"></p>
             <h3 id="layerTitle"></h3>
             <p id="layerDesc"></p>
-            <ul class="layers__bullets" id="layerBullets"></ul>
             <ul class="tags mono" id="layerTags"></ul>
           </aside>
         </div>
@@ -602,8 +574,8 @@
       <div class="container">
         <div class="contact__card reveal">
           <p class="eyebrow">Contacto</p>
-          <h2>¿Tienes un proceso que se puede automatizar?</h2>
-          <p class="section__lead">Platiquemos sobre SAP Business One, integraciones o automatización.</p>
+          <h2>¿Platicamos?</h2>
+          <p class="section__lead">Si quieres conversar sobre SAP Business One, integraciones o IA aplicada, escríbeme.</p>
           <p class="contact__loc mono">Cuautitlán Izcalli, Estado de México</p>
           <div class="contact__actions">
             <a class="btn btn--primary" href="mailto:zacariasj384@gmail.com">Escríbeme</a>

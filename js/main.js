@@ -114,14 +114,12 @@
     }
   }
 
-  // Trayectoria: capas acumuladas + empresas
+  // Trayectoria: capas acumuladas
   var layersEl = document.getElementById('layers');
   if (layersEl) {
     var start = +layersEl.dataset.start;
     var end = +layersEl.dataset.end;
     var total = end - start + 1;
-    var now = new Date();
-    var nowYear = now.getFullYear() + now.getMonth() / 12;
     layersEl.style.setProperty('--cols', total);
 
     var axis = layersEl.querySelector('.layers__axis');
@@ -132,70 +130,30 @@
     }
 
     var layers = layersEl.querySelectorAll('.layer');
-    var jobs = layersEl.querySelectorAll('.job');
-    var legend = document.getElementById('jobsLegend');
-    var detail = layersEl.querySelector('.layers__detail');
     var span = document.getElementById('layerSpan');
     var unit = document.getElementById('layerUnit');
     var kicker = document.getElementById('layerKicker');
     var title = document.getElementById('layerTitle');
     var desc = document.getElementById('layerDesc');
-    var bullets = document.getElementById('layerBullets');
     var tags = document.getElementById('layerTags');
 
-    function fillList(ul, text) {
-      ul.innerHTML = '';
-      if (!text) return;
-      text.split('|').forEach(function (t) {
-        var li = document.createElement('li');
-        li.textContent = t;
-        ul.appendChild(li);
+    function select(layer) {
+      layers.forEach(function (l) {
+        l.classList.toggle('is-active', l === layer);
+        l.setAttribute('aria-selected', l === layer);
       });
-    }
-
-    function clearActive() {
-      layersEl.querySelectorAll('.is-active').forEach(function (el) {
-        el.classList.remove('is-active');
-        el.setAttribute('aria-selected', 'false');
-      });
-    }
-
-    function selectLayer(layer) {
-      clearActive();
-      layer.classList.add('is-active');
-      layer.setAttribute('aria-selected', 'true');
       var years = end - (+layer.dataset.from) + 1;
       span.textContent = years;
       unit.textContent = years === 1 ? 'año en esta capa' : 'años en esta capa';
       kicker.textContent = layer.dataset.from + ' → hoy';
       title.textContent = layer.dataset.title;
       desc.textContent = layer.dataset.desc;
-      fillList(bullets, '');
-      fillList(tags, layer.dataset.tags);
-      detail.style.removeProperty('--jc');
-    }
-
-    function selectJob(job) {
-      clearActive();
-      job.classList.add('is-active');
-      job.setAttribute('aria-selected', 'true');
-      job._legend.classList.add('is-active');
-      var jobEnd = job.classList.contains('is-now') ? nowYear : +job.dataset.end;
-      var months = Math.max(1, Math.round((jobEnd - (+job.dataset.start)) * 12));
-      if (months < 12) {
-        span.textContent = months;
-        unit.textContent = months === 1 ? 'mes' : 'meses';
-      } else {
-        var yrs = Math.round(months / 12 * 2) / 2;
-        span.textContent = String(yrs).replace('.5', '½');
-        unit.textContent = yrs === 1 ? 'año' : 'años';
-      }
-      kicker.textContent = job.dataset.period;
-      title.textContent = job.dataset.company;
-      desc.textContent = job.dataset.role;
-      fillList(bullets, job.dataset.bullets);
-      fillList(tags, '');
-      detail.style.setProperty('--jc', getComputedStyle(job).getPropertyValue('--jc'));
+      tags.innerHTML = '';
+      layer.dataset.tags.split('|').forEach(function (t) {
+        var li = document.createElement('li');
+        li.textContent = t;
+        tags.appendChild(li);
+      });
     }
 
     // Las barras crecen desde la base (SAP B1) hacia arriba
@@ -206,33 +164,11 @@
       bar.style.setProperty('--w', (end - from + 1) / total);
       bar.style.setProperty('--d', ((n - 1 - i) * 0.15) + 's');
       layer.querySelector('.layer__years').textContent = from + ' → hoy';
-      layer.addEventListener('click', function () { selectLayer(layer); });
-      layer.addEventListener('mouseenter', function () { selectLayer(layer); });
+      layer.addEventListener('click', function () { select(layer); });
+      layer.addEventListener('mouseenter', function () { select(layer); });
     });
 
-    // Empresas: posición en el eje y leyenda clicable
-    jobs.forEach(function (job) {
-      var a = Math.max(+job.dataset.start, start);
-      var b = Math.min(+job.dataset.end, end + 1);
-      job.style.setProperty('--x', (a - start) / total);
-      job.style.setProperty('--w', (b - a) / total);
-      job.setAttribute('aria-label', job.dataset.company + ', ' + job.dataset.period);
-      job.title = job.dataset.company;
-
-      var leg = document.createElement('button');
-      leg.className = 'jleg';
-      leg.dataset.c = job.dataset.c;
-      leg.textContent = job.dataset.company;
-      legend.appendChild(leg);
-      job._legend = leg;
-
-      [job, leg].forEach(function (el) {
-        el.addEventListener('click', function () { selectJob(job); });
-        el.addEventListener('mouseenter', function () { selectJob(job); });
-      });
-    });
-
-    selectLayer(layersEl.querySelector('.layer.is-active') || layers[n - 1]);
+    select(layersEl.querySelector('.layer.is-active') || layers[n - 1]);
   }
 
   document.getElementById('year').textContent = new Date().getFullYear();
