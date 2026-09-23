@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>José Armando Zacarías | SAP Business One · Automatización · IA</title>
+  <meta name="description" content="13 años en SAP Business One. Jefe de Desarrollo. Integración, automatización de procesos y desarrollo de soluciones con SAP B1 HANA, Service Layer, Laravel, .NET e IA aplicada.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231e40af'/%3E%3Ctext x='50%25' y='56%25' text-anchor='middle' dominant-baseline='middle' font-family='Arial' font-weight='700' font-size='28' fill='white'%3EJZ%3C/text%3E%3C/svg%3E">
+  <script>
+    // Aplica el tema guardado antes de pintar para evitar parpadeo
+    document.documentElement.classList.add('js');
+    try { var t = localStorage.getItem('theme'); if (t) document.documentElement.setAttribute('data-theme', t); } catch (e) {}
+  </script>
+</head>
+<body>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="top">
+    <div class="container nav__inner">
+      <a href="#top" class="brand" aria-label="Inicio">
+        <span class="brand__mark">JZ</span>
+        <span class="brand__name">José Armando Zacarías</span>
+      </a>
+      <nav class="nav__links" id="navLinks">
+        <a href="#enfoque">Enfoque</a>
+        <a href="#casos">Casos</a>
+        <a href="#stack">Stack</a>
+        <a href="#ia">IA</a>
+        <a href="#trayectoria">Trayectoria</a>
+        <a href="#contacto" class="btn btn--sm btn--primary">Contacto</a>
+      </nav>
+      <div class="nav__actions">
+        <button class="icon-btn" id="themeToggle" aria-label="Cambiar tema">
+          <svg class="i-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="i-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        </button>
+        <button class="icon-btn nav__burger" id="menuToggle" aria-label="Menú" aria-expanded="false">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="container hero__grid">
+        <div class="hero__copy reveal">
+          <p class="eyebrow">SAP Business One · Automatización · Integración · IA aplicada</p>
+          <h1>13 años en SAP Business One.<br><span class="accent">Hoy también construyo las soluciones.</span></h1>
+          <p class="lead">
+            Analizo cómo opera el negocio, detecto qué procesos pueden mejorarse o automatizarse
+            y los convierto en soluciones prácticas con <strong>SAP B1 HANA, Service Layer, APIs, bases de datos, reportes e inteligencia artificial</strong>.
+          </p>
+          <div class="hero__cta">
+            <a href="#casos" class="btn btn--primary">Ver casos</a>
+            <a href="#contacto" class="btn btn--ghost">Hablemos</a>
+          </div>
+        </div>
+
+        <!-- Tarjeta de perfil (sustituye la foto por ahora) -->
+        <div class="hero__visual reveal">
+          <div class="profile-card">
+            <div class="profile-card__head">
+              <div class="avatar">JZ</div>
+              <div>
+                <p class="profile-card__name">José Armando Zacarías</p>
+                <p class="profile-card__role">Jefe de Desarrollo · SAP B1</p>
+              </div>
+              <span class="status"><span class="dot"></span>Disponible</span>
+            </div>
+
+            <!-- Diagrama de integración -->
+            <svg class="flow" viewBox="0 0 360 200" role="img" aria-label="SAP Business One integrado con aplicaciones web, servicios fiscales e IA">
+              <defs>
+                <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M0 0 L10 5 L0 10z" class="flow__arrow"/>
+                </marker>
+              </defs>
+              <g class="flow__lines">
+                <path d="M112 100 H150" marker-end="url(#arr)" marker-start="url(#arr)"/>
+                <path d="M226 100 C250 100 250 40 268 40" marker-end="url(#arr)"/>
+                <path d="M226 100 H268" marker-end="url(#arr)"/>
+                <path d="M226 100 C250 100 250 160 268 160" marker-end="url(#arr)"/>
+              </g>
+              <g class="flow__node flow__node--core">
+                <rect x="10" y="72" width="102" height="56" rx="10"/>
+                <text x="61" y="96">SAP B1</text>
+                <text x="61" y="113" class="sub">HANA</text>
+              </g>
+              <g class="flow__node">
+                <rect x="152" y="72" width="74" height="56" rx="10"/>
+                <text x="189" y="96">Service</text>
+                <text x="189" y="113">Layer</text>
+              </g>
+              <g class="flow__node">
+                <rect x="270" y="20" width="80" height="40" rx="8"/>
+                <text x="310" y="45">Apps web</text>
+              </g>
+              <g class="flow__node">
+                <rect x="270" y="80" width="80" height="40" rx="8"/>
+                <text x="310" y="105">SAT · VUCEM</text>
+              </g>
+              <g class="flow__node flow__node--ai">
+                <rect x="270" y="140" width="80" height="40" rx="8"/>
+                <text x="310" y="165">IA</text>
+              </g>
+            </svg>
+
+            <div class="profile-card__foot mono">
+              <span>SAP B1</span><span>HANA SQL</span><span>Laravel</span><span>C# / .NET</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cifras -->
+      <div class="container">
+        <ul class="stats reveal">
+          <li><strong>13</strong><span>años en SAP Business One</span></li>
+          <li><strong>5</strong><span>soluciones integradas destacadas</span></li>
+          <li><strong>HANA</strong><span>Service Layer · SQL · Crystal</span></li>
+          <li><strong>IA</strong><span>aplicada a procesos y desarrollo</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ ENFOQUE ============ -->
+    <section class="section" id="enfoque">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow">Mi enfoque</p>
+          <h2>Así transformo un proceso</h2>
+          <p class="section__lead">Un mismo proceso, de manual y disperso a integrado y en operación, en seis pasos.</p>
+        </header>
+
+        <div class="journey reveal" id="journey">
+          <!-- Escenario: el proceso cambia según el paso activo -->
+          <div class="stage" id="stage">
+            <svg viewBox="0 0 400 290" role="img" aria-labelledby="stageStatus">
+              <defs>
+                <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+                  <path d="M20 0H0V20" fill="none" class="stage__gridline"/>
+                </pattern>
+              </defs>
+              <rect class="stage__grid" x="0" y="0" width="400" height="290" fill="url(#grid)"/>
+
+              <!-- Caos inicial -->
+              <path class="stage__mess" d="M110 55 L320 200 L70 170 L300 40 L170 235 L110 55"/>
+
+              <!-- Conexiones a SAP -->
+              <g class="stage__links">
+                <path d="M200 145 L200 40"/>
+                <path d="M200 145 L330 105"/>
+                <path d="M200 145 L295 240"/>
+                <path d="M200 145 L105 240"/>
+                <path d="M200 145 L70 105"/>
+              </g>
+
+              <!-- Núcleo SAP B1 -->
+              <g class="stage__core">
+                <rect x="152" y="123" width="96" height="44" rx="10"/>
+                <text x="200" y="145">SAP B1</text>
+              </g>
+
+              <g class="node n1">
+                <rect x="-55" y="-18" width="110" height="36" rx="9"/>
+                <text class="lbl-a">Solicitud</text>
+                <g class="node__ok"><circle cx="52" cy="-16" r="8"/><path d="M48 -16 l3 3 l5 -6"/></g>
+              </g>
+              <g class="node n2 is-pain">
+                <rect x="-55" y="-18" width="110" height="36" rx="9"/>
+                <text class="lbl-a">Captura manual</text>
+                <text class="lbl-b">Captura automática</text>
+                <g class="node__pain"><circle cx="52" cy="-16" r="8"/><text x="52" y="-16">!</text></g>
+                <g class="node__ok"><circle cx="52" cy="-16" r="8"/><path d="M48 -16 l3 3 l5 -6"/></g>
+              </g>
+              <g class="node n3">
+                <rect x="-55" y="-18" width="110" height="36" rx="9"/>
+                <text class="lbl-a">Autorización</text>
+                <g class="node__ok"><circle cx="52" cy="-16" r="8"/><path d="M48 -16 l3 3 l5 -6"/></g>
+              </g>
+              <g class="node n4 is-pain">
+                <rect x="-55" y="-18" width="110" height="36" rx="9"/>
+                <text class="lbl-a">Excel suelto</text>
+                <text class="lbl-b">Reporte en línea</text>
+                <g class="node__pain"><circle cx="52" cy="-16" r="8"/><text x="52" y="-16">!</text></g>
+                <g class="node__ok"><circle cx="52" cy="-16" r="8"/><path d="M48 -16 l3 3 l5 -6"/></g>
+              </g>
+              <g class="node n5 is-pain">
+                <rect x="-55" y="-18" width="110" height="36" rx="9"/>
+                <text class="lbl-a">Correo</text>
+                <text class="lbl-b">Aviso automático</text>
+                <g class="node__pain"><circle cx="52" cy="-16" r="8"/><text x="52" y="-16">!</text></g>
+                <g class="node__ok"><circle cx="52" cy="-16" r="8"/><path d="M48 -16 l3 3 l5 -6"/></g>
+              </g>
+
+              <!-- Estado final -->
+              <g class="stage__live">
+                <rect x="138" y="258" width="124" height="26" rx="13"/>
+                <circle cx="156" cy="271" r="4"/>
+                <text x="206" y="271">En operación</text>
+              </g>
+            </svg>
+            <p class="stage__status"><span class="stage__step mono" id="stageStep">01 / 06</span><span id="stageStatus">Proceso actual: manual y disperso</span></p>
+          </div>
+
+          <!-- Pasos -->
+          <ol class="journey__steps" role="tablist" aria-label="Pasos del enfoque">
+            <li><button class="jstep is-active" role="tab" data-status="Proceso actual: manual, disperso y con 3 puntos de fricción">
+              <span class="jstep__n mono">01</span><span class="jstep__t">Entender</span>
+              <span class="jstep__d">Conocer el proceso real, a los usuarios y dónde se pierde tiempo.</span>
+              <span class="jstep__bar"></span></button></li>
+            <li><button class="jstep" role="tab" data-status="Proceso rediseñado: reglas claras y un orden definido">
+              <span class="jstep__n mono">02</span><span class="jstep__t">Diseñar</span>
+              <span class="jstep__d">Definir reglas de negocio claras y la solución adecuada.</span>
+              <span class="jstep__bar"></span></button></li>
+            <li><button class="jstep" role="tab" data-status="Conectado a SAP Business One: una sola fuente de información">
+              <span class="jstep__n mono">03</span><span class="jstep__t">Integrar</span>
+              <span class="jstep__d">Conectar SAP B1 con las herramientas de la operación.</span>
+              <span class="jstep__bar"></span></button></li>
+            <li><button class="jstep" role="tab" data-status="Tareas repetitivas eliminadas: la información fluye sola">
+              <span class="jstep__n mono">04</span><span class="jstep__t">Automatizar</span>
+              <span class="jstep__d">Eliminar la captura manual y las tareas repetitivas.</span>
+              <span class="jstep__bar"></span></button></li>
+            <li><button class="jstep" role="tab" data-status="Validado con datos reales y con el usuario">
+              <span class="jstep__n mono">05</span><span class="jstep__t">Validar</span>
+              <span class="jstep__d">Probar con datos reales y con quienes lo van a usar.</span>
+              <span class="jstep__bar"></span></button></li>
+            <li><button class="jstep" role="tab" data-status="En operación, con usuarios capacitados y seguimiento">
+              <span class="jstep__n mono">06</span><span class="jstep__t">Implementar</span>
+              <span class="jstep__d">Salida a operación, capacitación y seguimiento.</span>
+              <span class="jstep__bar"></span></button></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CASOS ============ -->
+    <section class="section section--alt" id="casos">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow">Casos</p>
+          <h2>Soluciones que resuelven operación real</h2>
+          <p class="section__lead">Desarrolladas e integradas con SAP Business One dentro de <strong>SIC</strong>, la plataforma interna de operación.</p>
+        </header>
+
+        <div class="cases">
+
+          <!-- Caso 1 -->
+          <article class="case case--wide reveal">
+            <div class="case__media">
+              <!-- TODO: reemplazar por captura anonimizada: assets/img/caso-asistente.png -->
+              <svg viewBox="0 0 320 200" aria-hidden="true">
+                <rect x="20" y="20" width="280" height="160" rx="12" class="m-surface"/>
+                <rect x="36" y="38" width="150" height="26" rx="13" class="m-muted"/>
+                <text x="48" y="55" class="m-text">¿Trazabilidad del lote?</text>
+                <rect x="100" y="76" width="184" height="60" rx="12" class="m-accent-soft"/>
+                <rect x="114" y="90" width="90" height="6" rx="3" class="m-accent"/>
+                <rect x="114" y="104" width="150" height="6" rx="3" class="m-line"/>
+                <rect x="114" y="118" width="120" height="6" rx="3" class="m-line"/>
+                <rect x="100" y="146" width="44" height="20" rx="6" class="m-chip"/><text x="122" y="160" class="m-chip-t">PDF</text>
+                <rect x="150" y="146" width="48" height="20" rx="6" class="m-chip"/><text x="174" y="160" class="m-chip-t">Excel</text>
+              </svg>
+            </div>
+            <div class="case__body">
+              <p class="case__tag">Calidad · Trazabilidad</p>
+              <h3>Trazabilidad de lotes al instante</h3>
+              <dl class="case__pdr">
+                <div><dt>Problema</dt><dd>Rastrear un lote desde la compra hasta la venta tomaba tiempo y dependía de consultar varios reportes.</dd></div>
+                <div><dt>Solución</dt><dd>Un asistente con IA al que se le pregunta en lenguaje natural y responde con el recorrido completo del lote: proveedor, importación, producción y cliente.</dd></div>
+                <div><dt>Resultado</dt><dd>Respuesta inmediata ante auditorías, reclamos de clientes o revisiones de calidad, con reporte listo para entregar.</dd></div>
+              </dl>
+              <ul class="tags mono"><li>SAP B1</li><li>IA aplicada</li><li>Auditoría</li><li>Calidad</li></ul>
+            </div>
+          </article>
+
+          <!-- Caso 2 -->
+          <article class="case reveal">
+            <div class="case__media">
+              <!-- TODO: assets/img/caso-vucem.png -->
+              <svg viewBox="0 0 320 200" aria-hidden="true">
+                <rect x="70" y="18" width="130" height="164" rx="10" class="m-surface"/>
+                <rect x="86" y="36" width="70" height="8" rx="4" class="m-accent"/>
+                <rect x="86" y="56" width="98" height="6" rx="3" class="m-line"/>
+                <rect x="86" y="70" width="80" height="6" rx="3" class="m-line"/>
+                <rect x="86" y="84" width="92" height="6" rx="3" class="m-line"/>
+                <rect x="86" y="110" width="98" height="40" rx="6" class="m-muted"/>
+                <path d="M210 100 H240" class="m-arrow"/>
+                <circle cx="266" cy="100" r="26" class="m-accent-soft"/>
+                <path d="M254 100 l8 8 l16 -16" class="m-check"/>
+              </svg>
+            </div>
+            <div class="case__body">
+              <p class="case__tag">Comercio exterior · Cumplimiento</p>
+              <h3>Manifestación de Valor sin recaptura</h3>
+              <dl class="case__pdr">
+                <div><dt>Problema</dt><dd>Cada importación implicaba capturar a mano la información del pedimento, con riesgo de errores ante la autoridad.</dd></div>
+                <div><dt>Solución</dt><dd>Lectura automática del pedimento, llenado guiado con catálogos oficiales y envío directo a VUCEM.</dd></div>
+                <div><dt>Resultado</dt><dd>Menos errores, menos tiempo por operación y control del trámite de principio a fin.</dd></div>
+              </dl>
+              <ul class="tags mono"><li>VUCEM</li><li>Cumplimiento</li><li>Automatización</li></ul>
+            </div>
+          </article>
+
+          <!-- Caso 3 -->
+          <article class="case reveal">
+            <div class="case__media">
+              <!-- TODO: assets/img/caso-cfdi.png -->
+              <svg viewBox="0 0 320 200" aria-hidden="true">
+                <rect x="40" y="26" width="110" height="148" rx="10" class="m-surface"/>
+                <text x="56" y="52" class="m-text m-bold">CFDI 4.0</text>
+                <rect x="56" y="64" width="78" height="6" rx="3" class="m-line"/>
+                <rect x="56" y="78" width="60" height="6" rx="3" class="m-line"/>
+                <rect x="56" y="136" width="78" height="22" rx="6" class="m-accent-soft"/>
+                <text x="95" y="151" class="m-chip-t">Timbrado</text>
+                <rect x="170" y="26" width="110" height="148" rx="10" class="m-surface"/>
+                <text x="186" y="52" class="m-text m-bold">Carta Porte</text>
+                <circle cx="196" cy="90" r="6" class="m-accent"/>
+                <path d="M196 96 V130" class="m-dash"/>
+                <circle cx="196" cy="136" r="6" class="m-accent"/>
+                <rect x="210" y="86" width="56" height="6" rx="3" class="m-line"/>
+                <rect x="210" y="132" width="44" height="6" rx="3" class="m-line"/>
+              </svg>
+            </div>
+            <div class="case__body">
+              <p class="case__tag">Fiscal · Continuidad</p>
+              <h3>Facturación y Carta Porte sin interrupciones</h3>
+              <dl class="case__pdr">
+                <div><dt>Problema</dt><dd>Cuando el servicio de timbrado fallaba, se detenía la facturación y los embarques no podían salir.</dd></div>
+                <div><dt>Solución</dt><dd>Timbrado integrado a SAP B1 que reintenta por sí solo cuando el servicio falla, incluyendo Carta Porte.</dd></div>
+                <div><dt>Resultado</dt><dd>La operación sigue aunque el servicio externo falle, sin reprocesos manuales.</dd></div>
+              </dl>
+              <ul class="tags mono"><li>CFDI 4.0</li><li>Carta Porte</li><li>Continuidad operativa</li></ul>
+            </div>
+          </article>
+
+          <!-- Caso 4 -->
+          <article class="case reveal">
+            <div class="case__media">
+              <!-- TODO: assets/img/caso-cxp.png -->
+              <svg viewBox="0 0 320 200" aria-hidden="true">
+                <rect x="30" y="24" width="260" height="152" rx="12" class="m-surface"/>
+                <rect x="30" y="24" width="260" height="30" rx="12" class="m-muted"/>
+                <g class="m-rows">
+                  <rect x="46" y="68" width="90" height="6" rx="3" class="m-line"/><rect x="176" y="68" width="50" height="6" rx="3" class="m-line"/><rect x="244" y="64" width="30" height="14" rx="7" class="m-ok"/>
+                  <rect x="46" y="96" width="70" height="6" rx="3" class="m-line"/><rect x="176" y="96" width="60" height="6" rx="3" class="m-line"/><rect x="244" y="92" width="30" height="14" rx="7" class="m-warn"/>
+                  <rect x="46" y="124" width="100" height="6" rx="3" class="m-line"/><rect x="176" y="124" width="40" height="6" rx="3" class="m-line"/><rect x="244" y="120" width="30" height="14" rx="7" class="m-ok"/>
+                  <rect x="46" y="152" width="80" height="6" rx="3" class="m-line"/><rect x="176" y="152" width="56" height="6" rx="3" class="m-line"/><rect x="244" y="148" width="30" height="14" rx="7" class="m-accent-soft"/>
+                </g>
+              </svg>
+            </div>
+            <div class="case__body">
+              <p class="case__tag">Finanzas · Flujo de efectivo</p>
+              <h3>Cuentas por Pagar</h3>
+              <dl class="case__pdr">
+                <div><dt>Problema</dt><dd>El seguimiento de pagos a proveedores dependía de reportes exportados y hojas de cálculo.</dd></div>
+                <div><dt>Solución</dt><dd>Módulo conectado a SAP B1 que muestra saldos, vencimientos y estado de cada pago en un solo lugar.</dd></div>
+                <div><dt>Resultado</dt><dd>Visibilidad diaria de lo que se debe, a quién y cuándo, para planear pagos con datos reales.</dd></div>
+              </dl>
+              <ul class="tags mono"><li>SAP B1</li><li>Finanzas</li><li>Toma de decisiones</li></ul>
+            </div>
+          </article>
+
+          <!-- Caso 5 -->
+          <article class="case reveal">
+            <div class="case__media">
+              <!-- TODO: assets/img/caso-firma.png -->
+              <svg viewBox="0 0 320 200" aria-hidden="true">
+                <rect x="60" y="20" width="200" height="160" rx="12" class="m-surface"/>
+                <rect x="80" y="40" width="110" height="8" rx="4" class="m-accent"/>
+                <rect x="80" y="60" width="160" height="6" rx="3" class="m-line"/>
+                <rect x="80" y="74" width="140" height="6" rx="3" class="m-line"/>
+                <rect x="80" y="88" width="150" height="6" rx="3" class="m-line"/>
+                <path d="M86 140 c12 -22 20 10 30 -6 s14 -18 20 2 s12 4 22 -8" class="m-sign"/>
+                <path d="M80 150 H180" class="m-dash"/>
+                <circle cx="222" cy="140" r="16" class="m-accent-soft"/>
+                <path d="M214 140 l6 6 l10 -12" class="m-check"/>
+              </svg>
+            </div>
+            <div class="case__body">
+              <p class="case__tag">Control · Cero papel</p>
+              <h3>Firma electrónica de documentos</h3>
+              <dl class="case__pdr">
+                <div><dt>Problema</dt><dd>Documentos impresos, firmados y escaneados, sin control de quién firmó y cuándo.</dd></div>
+                <div><dt>Solución</dt><dd>Flujo de firma digital con varios firmantes y registro de cada paso.</dd></div>
+                <div><dt>Resultado</dt><dd>Menos papel, firmas en menos tiempo y evidencia completa ante auditorías.</dd></div>
+              </dl>
+              <ul class="tags mono"><li>Firma digital</li><li>Control interno</li><li>Auditoría</li></ul>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Otros logros en SAP B1 (del CV) -->
+        <div class="more reveal">
+          <h3 class="more__title">Más proyectos en SAP Business One</h3>
+          <ul class="more__grid">
+            <li><span class="more__k mono">Logística</span><strong>Integración WMS–SAP B1 en dos CEDIS</strong><p>Interfaces y mapeos para que almacén y ERP trabajen con la misma información.</p></li>
+            <li><span class="more__k mono">Carta Porte</span><strong>Factura de traslado en un clic</strong><p>Botón en SDK que arma el borrador desde transferencias y facturas de reserva.</p></li>
+            <li><span class="more__k mono">Finanzas</span><strong>Tipo de cambio automático</strong><p>Actualización diaria desde Banxico en todas las bases de datos, sin captura manual.</p></li>
+            <li><span class="more__k mono">Control</span><strong>Candados en SAP B1</strong><p>Transaction Notifications que previenen errores y acciones indebidas antes de que ocurran.</p></li>
+            <li><span class="more__k mono">Contabilidad</span><strong>Facturas de anticipo</strong><p>Control completo de anticipos para mejorar la trazabilidad financiera.</p></li>
+            <li><span class="more__k mono">Producción</span><strong>Manufactura en SAP B1</strong><p>Listas de materiales, etapas de ruta y ubicaciones para controlar la producción y el inventario.</p></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STACK ============ -->
+    <section class="section" id="stack">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow">Stack</p>
+          <h2>Herramientas con las que trabajo</h2>
+        </header>
+
+        <div class="stack">
+          <div class="stack__group reveal">
+            <div class="stack__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg>
+            </div>
+            <h3>SAP Business One</h3>
+            <ul><li>SAP B1 HANA y SQL Server</li><li>Service Layer · SDK / DI-API</li><li>Transaction Notifications</li><li>Crystal Reports</li><li>Autorizaciones y migraciones</li></ul>
+          </div>
+          <div class="stack__group reveal">
+            <div class="stack__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></svg>
+            </div>
+            <h3>Integración y desarrollo</h3>
+            <ul><li>APIs REST</li><li>Laravel / PHP</li><li>C# / .NET</li><li>Integration Framework</li><li>Integración WMS</li></ul>
+          </div>
+          <div class="stack__group reveal">
+            <div class="stack__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg>
+            </div>
+            <h3>Automatización y fiscal</h3>
+            <ul><li>Automatización de procesos</li><li>Timbrado CFDI</li><li>Carta Porte</li><li>VUCEM</li><li>Jobs y alertas en SQL</li></ul>
+          </div>
+          <div class="stack__group reveal">
+            <div class="stack__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
+            </div>
+            <h3>Datos e IA</h3>
+            <ul><li>Power BI y dashboards</li><li>Consultas y vistas SQL / HANA</li><li>Análisis de información</li><li>IA aplicada a procesos</li><li>IA en desarrollo</li></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ IA ============ -->
+    <section class="section section--alt" id="ia">
+      <div class="container ia">
+        <div class="ia__copy reveal">
+          <p class="eyebrow">IA en mi metodología</p>
+          <h2>Criterio de negocio, potenciado con IA</h2>
+          <p>
+            Incorporo la inteligencia artificial como una herramienta más de mi metodología:
+            me permite evaluar más alternativas, revisar cada solución con mayor profundidad y dejar todo documentado.
+          </p>
+          <p>
+            <strong>Entender la operación, definir las reglas de negocio, diseñar, validar con el usuario e implementar</strong>
+            se sustenta en 13 años de experiencia en SAP Business One.
+          </p>
+        </div>
+        <div class="ia__split reveal">
+          <div class="split-col">
+            <p class="split-col__title">Herramienta de apoyo</p>
+            <ul><li>Evaluación de alternativas</li><li>Revisión de calidad</li><li>Diagnóstico de incidencias</li><li>Documentación de procesos</li></ul>
+          </div>
+          <div class="split-col split-col--me">
+            <p class="split-col__title">Experiencia y criterio</p>
+            <ul><li>Entender la operación</li><li>Reglas de negocio</li><li>Diseño de la solución</li><li>Validación con el usuario</li><li>Implementación y seguimiento</li></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TRAYECTORIA ============ -->
+    <section class="section" id="trayectoria">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow">Trayectoria</p>
+          <h2>Capas que se suman, no que se reemplazan</h2>
+          <p class="section__lead">Desde 2013 sobre SAP Business One. Cada etapa se construyó encima de la anterior y todas siguen activas hoy. Toca una capa o una empresa para ver el detalle.</p>
+        </header>
+
+        <!-- Capas: data-from = año de inicio (todas terminan en "hoy").
+             Empresas: data-start / data-end en años decimales (año + mes/12). -->
+        <div class="layers reveal" id="layers" data-start="2013" data-end="2026">
+          <div class="layers__chart">
+            <div class="layers__rows" role="tablist" aria-label="Capas de experiencia">
+              <button class="layer" role="tab" data-from="2026" data-level="5"
+                data-title="Desarrollo de soluciones e IA"
+                data-desc="Como Jefe de Desarrollo en IMATE empezó la etapa de construir soluciones propias: SIC, la plataforma de operación integrada con SAP B1, con IA, consultas y automatizaciones."
+                data-tags="Laravel|C# / .NET|APIs REST|IA aplicada">
+                <span class="layer__meta"><span class="layer__name">Desarrollo e IA</span><span class="layer__years mono"></span></span>
+                <span class="layer__track"><span class="layer__bar"></span></span>
+              </button>
+              <button class="layer" role="tab" data-from="2024" data-level="4"
+                data-title="Integración y automatización"
+                data-desc="Integración WMS–SAP B1 en dos centros de distribución, herramientas en SDK y tipo de cambio diario automático desde la API de Banxico."
+                data-tags="WMS|SDK / DI-API|API Banxico|Service Layer">
+                <span class="layer__meta"><span class="layer__name">Integración y automatización</span><span class="layer__years mono"></span></span>
+                <span class="layer__track"><span class="layer__bar"></span></span>
+              </button>
+              <button class="layer" role="tab" data-from="2018" data-level="3"
+                data-title="Coordinación de procesos"
+                data-desc="Coordinación de SAP B1 en ventas, compras, almacén, producción y finanzas: listas de materiales, etapas de ruta, ubicaciones, asistentes de pago, controles con Transaction Notifications y capacitación de usuarios."
+                data-tags="Producción|Inventarios|Finanzas|Capacitación">
+                <span class="layer__meta"><span class="layer__name">Coordinación de procesos</span><span class="layer__years mono"></span></span>
+                <span class="layer__track"><span class="layer__bar"></span></span>
+              </button>
+              <button class="layer" role="tab" data-from="2014" data-level="2"
+                data-title="Procesos fiscales"
+                data-desc="Puesta en marcha de factura electrónica en SAP B1, CFDI, Carta Porte y control de facturas de anticipo."
+                data-tags="CFDI|Carta Porte|Anticipos">
+                <span class="layer__meta"><span class="layer__name">Fiscal · CFDI · Carta Porte</span><span class="layer__years mono"></span></span>
+                <span class="layer__track"><span class="layer__bar"></span></span>
+              </button>
+              <button class="layer" role="tab" data-from="2013" data-level="1"
+                data-title="Datos y reportes"
+                data-desc="Crystal Reports, consultas y vistas SQL, envíos automáticos desde SQL y dashboards en Power BI para la toma de decisiones."
+                data-tags="SQL Server|HANA|Crystal Reports|Power BI">
+                <span class="layer__meta"><span class="layer__name">Datos y reportes</span><span class="layer__years mono"></span></span>
+                <span class="layer__track"><span class="layer__bar"></span></span>
+              </button>
+              <button class="layer is-active" role="tab" data-from="2013" data-level="0"
+                data-title="SAP Business One · el cimiento"
+                data-desc="Instalación, actualización y migración de versiones, alta de nuevas empresas, autorizaciones y soporte a todos los módulos. Además, infraestructura: servidores, SQL Server, Active Directory y redes."
+                data-tags="SAP B1|SQL Server|Soporte|Infraestructura">
+                <span class="layer__meta"><span class="layer__name">SAP Business One</span><span class="layer__years mono"></span></span>
+                <span class="layer__track"><span class="layer__bar"></span></span>
+              </button>
+            </div>
+            <div class="layers__axis mono" aria-hidden="true"></div>
+
+            <!-- Empresas -->
+            <div class="jobs">
+              <p class="jobs__label mono">Empresas</p>
+              <div class="jobs__ribbon" role="tablist" aria-label="Empresas">
+                <button class="job" role="tab" data-start="2013.08" data-end="2014.33" data-c="1"
+                  data-company="BEXAP" data-role="Soporte SAP B1 · 1er nivel" data-period="Feb 2013 – May 2014"
+                  data-bullets="Soporte a clientes de SAP Business One|Instalación y actualización a SAP B1 8.81, 8.82 y 9|Instalación de SQL Server, respaldos y planes de mantenimiento|Integration Framework para CFDI, Movilidad y Cockpit"></button>
+                <button class="job" role="tab" data-start="2014.33" data-end="2018.25" data-c="2"
+                  data-company="Centro Laminero de México" data-role="Encargado del Área de Sistemas" data-period="May 2014 – Abr 2018"
+                  data-bullets="Implementación de factura electrónica en SAP B1|Migración de versiones de SAP B1 y SQL Server|Alta de nuevas empresas en SAP B1|Envíos automáticos de correo desde SQL|Servidores, Active Directory y cableado estructurado"></button>
+                <button class="job" role="tab" data-start="2018.25" data-end="2024.42" data-c="3"
+                  data-company="Grupo EDID (Ediprint)" data-role="Coordinador SAP B1" data-period="Abr 2018 – May 2024"
+                  data-bullets="Producción: listas de materiales y etapas de ruta|Ubicaciones en almacén para inventarios más precisos|Asistentes de pago|Dashboards en Power BI y reportes en Crystal|Transaction Notifications y vistas SQL|Capacitación de usuarios"></button>
+                <button class="job" role="tab" data-start="2024.42" data-end="2025" data-c="4"
+                  data-company="Naturasol" data-role="Especialista SAP B1" data-period="Jun 2024 – Dic 2024"
+                  data-bullets="Integración WMS–SAP B1 en dos CEDIS|Botón en SDK que genera el borrador de factura para Carta Porte|Reportes personalizados en Crystal y SQL"></button>
+                <button class="job" role="tab" data-start="2025" data-end="2026" data-c="5"
+                  data-company="Elecsa Equipos Industriales" data-role="Coordinador SAP B1" data-period="Ene 2025 – 2026"
+                  data-bullets="Control de facturas de anticipo|Transaction Notifications para prevenir errores|Tipo de cambio diario automático con la API de Banxico|Autorizaciones y permisos por módulo|Formatos en Crystal Reports y consultas clave"></button>
+                <button class="job is-now" role="tab" data-start="2026" data-end="2027" data-c="6"
+                  data-company="IMATE" data-role="Jefe de Desarrollo" data-period="2026 – Actual"
+                  data-bullets="Aquí empezó la etapa de desarrollo: SIC, plataforma de operación integrada con SAP B1|Implementación de IA: consulta de trazabilidad de lotes en lenguaje natural|Manifestación de Valor y VUCEM con lectura automática de pedimentos|Timbrado CFDI y Carta Porte que se recupera solo ante fallas|Cuentas por pagar y firma electrónica de documentos|Consultas HANA y automatización de procesos"></button>
+              </div>
+              <div class="jobs__legend" id="jobsLegend"></div>
+            </div>
+          </div>
+
+          <aside class="layers__detail" aria-live="polite">
+            <p class="layers__count"><strong id="layerSpan">14</strong><span id="layerUnit">años en esta capa</span></p>
+            <p class="layers__kicker mono" id="layerKicker"></p>
+            <h3 id="layerTitle"></h3>
+            <p id="layerDesc"></p>
+            <ul class="layers__bullets" id="layerBullets"></ul>
+            <ul class="tags mono" id="layerTags"></ul>
+          </aside>
+        </div>
+
+        <!-- Formación -->
+        <div class="edu reveal">
+          <div class="edu__main">
+            <p class="eyebrow">Formación</p>
+            <h3>Ingeniería en Sistemas Computacionales</h3>
+            <p>Instituto Tecnológico Superior de Coatzacoalcos</p>
+          </div>
+          <ul class="edu__courses">
+            <li>SAP Learning Hub · Módulos SAP B1</li>
+            <li>Desarrollo en SDK de SAP B1 · DI-API</li>
+            <li>Power BI</li>
+            <li>Fundamentos de Seguridad</li>
+            <li>Contabilidad para no contadores</li>
+            <li>Excel avanzado</li>
+            <li>Desarrolla tu líder</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACTO ============ -->
+    <section class="section contact" id="contacto">
+      <div class="container">
+        <div class="contact__card reveal">
+          <p class="eyebrow">Contacto</p>
+          <h2>¿Tienes un proceso que se puede automatizar?</h2>
+          <p class="section__lead">Platiquemos sobre SAP Business One, integraciones o automatización.</p>
+          <p class="contact__loc mono">Cuautitlán Izcalli, Estado de México</p>
+          <div class="contact__actions">
+            <a class="btn btn--primary" href="mailto:zacariasj384@gmail.com">Escríbeme</a>
+            <button class="btn btn--ghost mono" id="copyEmail" data-email="zacariasj384@gmail.com">
+              <span id="copyLabel">zacariasj384@gmail.com</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span>© <span id="year"></span> José Armando Zacarías</span>
+      <a href="#top">Volver arriba ↑</a>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
