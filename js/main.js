@@ -194,16 +194,19 @@
     });
   }
 
-  // Copiar correo
-  var copyBtn = document.getElementById('copyEmail');
-  var copyLabel = document.getElementById('copyLabel');
-  copyBtn.addEventListener('click', function () {
-    if (!navigator.clipboard) return;
-    navigator.clipboard.writeText(copyBtn.dataset.email).then(function () {
-      copyLabel.textContent = '¡Copiado!';
-      setTimeout(function () { copyLabel.textContent = 'Copiar correo'; }, 1600);
-    });
-  });
+  // Contacto: WhatsApp y correo con mensaje listo. Se arman aquí para no
+  // dejar el número ni el correo como texto en el HTML.
+  var MENSAJE = 'Hola José, vi tu portafolio. Busco soluciones de TI y me gustaría platicar contigo.';
+  var waBtn = document.getElementById('waBtn');
+  var mailBtn = document.getElementById('mailBtn');
+  if (waBtn) {
+    waBtn.href = 'https://wa.me/' + ['52', '55', '8617', '1426'].join('') + '?text=' + encodeURIComponent(MENSAJE);
+  }
+  if (mailBtn) {
+    mailBtn.href = 'mailto:' + ['zacariasj384', 'gmail.com'].join('@') +
+      '?subject=' + encodeURIComponent('Soluciones de TI') +
+      '&body=' + encodeURIComponent(MENSAJE);
+  }
 
   // Botón volver arriba: aparece al bajar
   var toTop = document.getElementById('toTop');
