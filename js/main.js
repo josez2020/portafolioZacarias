@@ -5,11 +5,11 @@
   // en otra sección no lo bloquee. El número y el correo se arman aquí para no
   // dejarlos como texto en el HTML.
   try {
-    var MENSAJE = 'Hola José, vi tu portafolio. Busco soluciones de TI y me gustaría platicar contigo.';
+    var MENSAJE = 'Hola José, vi tu portafolio. Busco soluciones de desarrollo para mi empresa y me gustaría platicar contigo.';
     var waUrl = 'https://api.whatsapp.com/send?phone=' + ['52', '55', '8617', '1426'].join('') +
       '&text=' + encodeURIComponent(MENSAJE);
     var mailUrl = 'mailto:' + ['zacariasj384', 'gmail.com'].join('@') +
-      '?subject=' + encodeURIComponent('Soluciones de TI') +
+      '?subject=' + encodeURIComponent('Soluciones de desarrollo para mi empresa') +
       '&body=' + encodeURIComponent(MENSAJE);
     var esCelular = window.matchMedia('(pointer: coarse)').matches;
 
