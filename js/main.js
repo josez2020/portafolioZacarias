@@ -1,15 +1,5 @@
 (function () {
-  var root = document.documentElement;
-
-  // Tema claro / oscuro
-  var themeBtn = document.getElementById('themeToggle');
-  themeBtn.addEventListener('click', function () {
-    var current = root.getAttribute('data-theme') ||
-      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-    var next = current === 'dark' ? 'light' : 'dark';
-    root.setAttribute('data-theme', next);
-    try { localStorage.setItem('theme', next); } catch (e) {}
-  });
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // Menú móvil
   var menuBtn = document.getElementById('menuToggle');
@@ -25,8 +15,8 @@
     }
   });
 
-  // Aparición al hacer scroll
-  var items = document.querySelectorAll('.reveal');
+  // Aparición al hacer scroll (incluye la línea de la trayectoria)
+  var items = document.querySelectorAll('.reveal, .road');
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
@@ -41,19 +31,7 @@
     items.forEach(function (el) { el.classList.add('in'); });
   }
 
-  // Copiar correo
-  var copyBtn = document.getElementById('copyEmail');
-  var copyLabel = document.getElementById('copyLabel');
-  copyBtn.addEventListener('click', function () {
-    var email = copyBtn.getAttribute('data-email');
-    if (!navigator.clipboard) return;
-    navigator.clipboard.writeText(email).then(function () {
-      copyLabel.textContent = '¡Copiado!';
-      setTimeout(function () { copyLabel.textContent = email; }, 1600);
-    });
-  });
-
-  // Enfoque: el proceso se transforma paso a paso
+  // 04 · Así transformo un proceso
   var journey = document.getElementById('journey');
   if (journey) {
     var stage = document.getElementById('stage');
@@ -64,7 +42,6 @@
     var current = 0;
     var timer = null;
     var userTookControl = false;
-    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     journey.style.setProperty('--step-ms', STEP_MS + 'ms');
 
     function goTo(i) {
@@ -114,62 +91,125 @@
     }
   }
 
-  // Trayectoria: capas acumuladas
-  var layersEl = document.getElementById('layers');
-  if (layersEl) {
-    var start = +layersEl.dataset.start;
-    var end = +layersEl.dataset.end;
-    var total = end - start + 1;
-    layersEl.style.setProperty('--cols', total);
+  // 05 · Recorrido del portal: cambia de módulo solo o con las pestañas
+  var tour = document.getElementById('tour');
+  if (tour) {
+    var tImgs = tour.querySelectorAll('.tour__img');
+    var tTabs = tour.querySelectorAll('.tour__tab');
+    var TOUR_MS = 4500, tIdx = 0, tTimer = null, tUser = false;
+    tour.style.setProperty('--tour-ms', TOUR_MS + 'ms');
 
-    var axis = layersEl.querySelector('.layers__axis');
-    for (var y = start; y <= end; y++) {
-      var s = document.createElement('span');
-      s.innerHTML = '<span class="full">' + y + '</span><span class="short">’' + String(y).slice(2) + '</span>';
-      axis.appendChild(s);
+    function show(i) {
+      tIdx = i;
+      tImgs.forEach(function (img, k) { img.classList.toggle('is-on', k === i); });
+      tTabs.forEach(function (tab, k) {
+        tab.classList.toggle('is-on', k === i);
+        tab.setAttribute('aria-selected', k === i);
+      });
+      var bar = tTabs[i].querySelector('.tour__bar');
+      bar.style.animation = 'none';
+      void bar.offsetWidth;
+      bar.style.animation = '';
+    }
+    function tPlay() {
+      if (tUser || reduceMotion || tTimer) return;
+      tour.classList.add('playing');
+      tTimer = setInterval(function () { show((tIdx + 1) % tImgs.length); }, TOUR_MS);
+    }
+    function tStop() {
+      clearInterval(tTimer);
+      tTimer = null;
+      tour.classList.remove('playing');
     }
 
-    var layers = layersEl.querySelectorAll('.layer');
-    var span = document.getElementById('layerSpan');
-    var unit = document.getElementById('layerUnit');
-    var kicker = document.getElementById('layerKicker');
-    var title = document.getElementById('layerTitle');
-    var desc = document.getElementById('layerDesc');
-    var tags = document.getElementById('layerTags');
-
-    function select(layer) {
-      layers.forEach(function (l) {
-        l.classList.toggle('is-active', l === layer);
-        l.setAttribute('aria-selected', l === layer);
-      });
-      var years = end - (+layer.dataset.from) + 1;
-      span.textContent = years;
-      unit.textContent = years === 1 ? 'año en esta capa' : 'años en esta capa';
-      kicker.textContent = layer.dataset.from + ' → hoy';
-      title.textContent = layer.dataset.title;
-      desc.textContent = layer.dataset.desc;
-      tags.innerHTML = '';
-      layer.dataset.tags.split('|').forEach(function (t) {
-        var li = document.createElement('li');
-        li.textContent = t;
-        tags.appendChild(li);
-      });
+    tTabs.forEach(function (tab, k) {
+      tab.addEventListener('click', function () { tUser = true; tStop(); show(k); });
+    });
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { e.isIntersecting ? tPlay() : tStop(); });
+      }, { threshold: 0.35 }).observe(tour);
     }
+  }
 
-    // Las barras crecen desde la base (SAP B1) hacia arriba
-    var n = layers.length;
-    layers.forEach(function (layer, i) {
-      var from = +layer.dataset.from;
-      var bar = layer.querySelector('.layer__bar');
-      bar.style.setProperty('--w', (end - from + 1) / total);
-      bar.style.setProperty('--d', ((n - 1 - i) * 0.15) + 's');
-      layer.querySelector('.layer__years').textContent = from + ' → hoy';
-      layer.addEventListener('click', function () { select(layer); });
-      layer.addEventListener('mouseenter', function () { select(layer); });
+  // 07 · Visor de casos
+  var cases = document.getElementById('cases');
+  if (cases) {
+    var tabs = cases.querySelectorAll('.cases__nav button');
+    tabs.forEach(function (tab) {
+      tab.setAttribute('aria-controls', tab.dataset.case);
+      tab.addEventListener('click', function () {
+        tabs.forEach(function (t) {
+          var on = t === tab;
+          t.classList.toggle('is-active', on);
+          t.setAttribute('aria-selected', on);
+          document.getElementById(t.dataset.case).classList.toggle('is-active', on);
+        });
+        tab.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: reduceMotion ? 'auto' : 'smooth' });
+      });
+    });
+  }
+
+  // 08 · Evidencia: carga capturas, filtros y visor
+  var gallery = document.getElementById('gallery');
+  if (gallery) {
+    var shots = gallery.querySelectorAll('.shot');
+    var lightbox = document.getElementById('lightbox');
+    var lbImg = document.getElementById('lightboxImg');
+    var lbCap = document.getElementById('lightboxCap');
+
+    shots.forEach(function (shot) {
+      var src = shot.dataset.src;
+      if (!src) return;
+      var img = new Image();
+      img.alt = shot.querySelector('strong').textContent;
+      img.onload = function () {
+        shot.querySelector('.shot__frame').appendChild(img);
+        shot.classList.add('has-img');
+        shot.tabIndex = 0;
+      };
+      img.src = src;
+
+      function open() {
+        if (!shot.classList.contains('has-img') || !lightbox.showModal) return;
+        lbImg.src = src;
+        lbImg.alt = img.alt;
+        lbCap.textContent = img.alt + ' · ' + shot.querySelector('figcaption span').textContent;
+        lightbox.showModal();
+      }
+      shot.addEventListener('click', open);
+      shot.addEventListener('keydown', function (e) { if (e.key === 'Enter') open(); });
     });
 
-    select(layersEl.querySelector('.layer.is-active') || layers[n - 1]);
+    document.getElementById('lightboxClose').addEventListener('click', function () { lightbox.close(); });
+    lightbox.addEventListener('click', function (e) { if (e.target === lightbox) lightbox.close(); });
+
+    var filters = document.querySelectorAll('#galleryFilters button');
+    filters.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var f = btn.dataset.filter;
+        filters.forEach(function (b) { b.classList.toggle('is-active', b === btn); });
+        shots.forEach(function (s) { s.hidden = f !== 'all' && s.dataset.cat !== f; });
+      });
+    });
   }
+
+  // Copiar correo
+  var copyBtn = document.getElementById('copyEmail');
+  var copyLabel = document.getElementById('copyLabel');
+  copyBtn.addEventListener('click', function () {
+    if (!navigator.clipboard) return;
+    navigator.clipboard.writeText(copyBtn.dataset.email).then(function () {
+      copyLabel.textContent = '¡Copiado!';
+      setTimeout(function () { copyLabel.textContent = 'Copiar correo'; }, 1600);
+    });
+  });
+
+  // Botón volver arriba: aparece al bajar
+  var toTop = document.getElementById('toTop');
+  function onScroll() { toTop.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 
   document.getElementById('year').textContent = new Date().getFullYear();
 })();
