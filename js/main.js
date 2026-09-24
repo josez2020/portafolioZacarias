@@ -211,5 +211,16 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
+  // El menú es fijo, así que un enlace a #top no mueve la página: se sube por código
+  document.querySelectorAll('a[href="#top"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+      links.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      if (history.replaceState) history.replaceState(null, '', location.pathname + location.search);
+    });
+  });
+
   document.getElementById('year').textContent = new Date().getFullYear();
 })();
