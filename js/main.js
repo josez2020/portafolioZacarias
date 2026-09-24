@@ -1,6 +1,32 @@
 (function () {
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // Contacto: WhatsApp y correo con mensaje listo. Va primero para que un error
+  // en otra sección no lo bloquee. El número y el correo se arman aquí para no
+  // dejarlos como texto en el HTML.
+  try {
+    var MENSAJE = 'Hola José, vi tu portafolio. Busco soluciones de TI y me gustaría platicar contigo.';
+    var waUrl = 'https://api.whatsapp.com/send?phone=' + ['52', '55', '8617', '1426'].join('') +
+      '&text=' + encodeURIComponent(MENSAJE);
+    var mailUrl = 'mailto:' + ['zacariasj384', 'gmail.com'].join('@') +
+      '?subject=' + encodeURIComponent('Soluciones de TI') +
+      '&body=' + encodeURIComponent(MENSAJE);
+    var esCelular = window.matchMedia('(pointer: coarse)').matches;
+
+    var waBtn = document.getElementById('waBtn');
+    if (waBtn) {
+      waBtn.href = waUrl;
+      waBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        // En celular se abre en la misma pestaña para que el sistema lance la app
+        if (esCelular) window.location.href = waUrl;
+        else window.open(waUrl, '_blank', 'noopener');
+      });
+    }
+    var mailBtn = document.getElementById('mailBtn');
+    if (mailBtn) mailBtn.href = mailUrl;
+  } catch (err) { /* sin contacto dinámico */ }
+
   // Menú móvil
   var menuBtn = document.getElementById('menuToggle');
   var links = document.getElementById('navLinks');
@@ -192,20 +218,6 @@
         shots.forEach(function (s) { s.hidden = f !== 'all' && s.dataset.cat !== f; });
       });
     });
-  }
-
-  // Contacto: WhatsApp y correo con mensaje listo. Se arman aquí para no
-  // dejar el número ni el correo como texto en el HTML.
-  var MENSAJE = 'Hola José, vi tu portafolio. Busco soluciones de TI y me gustaría platicar contigo.';
-  var waBtn = document.getElementById('waBtn');
-  var mailBtn = document.getElementById('mailBtn');
-  if (waBtn) {
-    waBtn.href = 'https://wa.me/' + ['52', '55', '8617', '1426'].join('') + '?text=' + encodeURIComponent(MENSAJE);
-  }
-  if (mailBtn) {
-    mailBtn.href = 'mailto:' + ['zacariasj384', 'gmail.com'].join('@') +
-      '?subject=' + encodeURIComponent('Soluciones de TI') +
-      '&body=' + encodeURIComponent(MENSAJE);
   }
 
   // Botón volver arriba: aparece al bajar
