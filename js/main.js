@@ -1,28 +1,14 @@
 (function () {
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Contacto: WhatsApp y correo con mensaje listo. Va primero para que un error
-  // en otra sección no lo bloquee. El número y el correo se arman aquí para no
-  // dejarlos como texto en el HTML.
+  // Contacto: correo con mensaje listo. Va primero para que un error en otra
+  // sección no lo bloquee. El correo se arma aquí para no dejarlo como texto en el HTML.
   try {
-    var MENSAJE = 'Hola José, vi tu portafolio. Busco soluciones de desarrollo para mi empresa y me gustaría platicar contigo.';
-    var waUrl = 'https://api.whatsapp.com/send?phone=' + ['52', '55', '8617', '1426'].join('') +
-      '&text=' + encodeURIComponent(MENSAJE);
+    var MENSAJE = 'Hola José, vi tu portafolio y me gustaría platicar contigo sobre una oportunidad laboral o un proyecto.';
     var mailUrl = 'mailto:' + ['zacariasj384', 'gmail.com'].join('@') +
-      '?subject=' + encodeURIComponent('Soluciones de desarrollo para mi empresa') +
+      '?subject=' + encodeURIComponent('Contacto desde tu portafolio') +
       '&body=' + encodeURIComponent(MENSAJE);
-    var esCelular = window.matchMedia('(pointer: coarse)').matches;
 
-    var waBtn = document.getElementById('waBtn');
-    if (waBtn) {
-      waBtn.href = waUrl;
-      waBtn.addEventListener('click', function (e) {
-        e.preventDefault();
-        // En celular se abre en la misma pestaña para que el sistema lance la app
-        if (esCelular) window.location.href = waUrl;
-        else window.open(waUrl, '_blank', 'noopener');
-      });
-    }
     var mailBtn = document.getElementById('mailBtn');
     if (mailBtn) mailBtn.href = mailUrl;
   } catch (err) { /* sin contacto dinámico */ }
